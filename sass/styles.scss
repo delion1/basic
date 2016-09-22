@@ -4,8 +4,45 @@
 
 
 body{
-background:#333;
-@include outer-container;
+	
+	margin:0;
+	font-family: 'Montserrat', sans-serif;
+
+	.site-header{
+		background:#777;
+
+
+		.header-wrapper{
+			@include outer-container;
+
+			#site-name{
+				@include span-columns(6);
+				padding: 5px 10px;
+				line-height: 50px;
+				display: inline-block;
+				font-size: 20px;	
+				font-weight:600;		
+			}
+			nav{
+				@include span-columns(6);
+				@include omega();
+
+				li{
+					display:inline-block;
+					padding:5px 10px;
+					
+					a{
+						text-decoration:none;
+						text-transform:uppercase;
+						color:#333;					
+					}				
+				}
+			}
+		}	
+	}
+	footer{
+		border-top:1px solid #333;	
+	}
 }
 
 
