@@ -1,0 +1,40 @@
+{
+  "name": "basic",
+  "version": "1.0.0",
+  "description": "basic project github.io",
+  "main": "index.js",
+  "dependencies": {
+    "bourbon-neat": "^1.8.0",
+    "gulp": "^3.9.1",
+    "gulp-notify": "^2.2.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-sass": "^2.3.2",
+    "gulp-shell": "^0.5.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^2.0.0",
+    "gulp-watch": "^4.3.9",
+    "node-bourbon": "^4.2.8",
+    "node-neat": "^1.7.2"
+  },
+  "devDependencies": {
+    "node-bourbon": "^4.2.8",
+    "node-neat": "^1.7.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/delion1/basic.git"
+  },
+  "keywords": [
+    "basic",
+    "delion"
+  ],
+  "author": "D. Elion",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/delion1/basic/issues"
+  },
+  "homepage": "https://github.com/delion1/basic#readme"
+}
