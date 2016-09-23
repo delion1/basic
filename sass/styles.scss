@@ -9,9 +9,9 @@ body{
 	font-family: 'Montserrat', sans-serif;
 
 	.site-header{
-		background:#777;
-
-
+		background:#d2d2d2;
+		border-bottom:1px solid #333;
+		
 		.header-wrapper{
 			@include outer-container;
 
@@ -39,6 +39,17 @@ body{
 				}
 			}
 		}	
+	}
+	.main{
+		background:url(../img/chicago.jpg);
+		background-repeat:none;
+		background-size:cover;
+
+		.container{
+			@include outer-container;
+			display:table;
+			padding:100px;
+		}
 	}
 	footer{
 		border-top:1px solid #333;	
