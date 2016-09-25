@@ -2,7 +2,7 @@
 @import "../import/neat/stylesheets/neat.scss";
 
 
-
+html{@include transition(all .5s ease-in-out);}
 body{
 
 	margin:0;
@@ -103,7 +103,14 @@ body{
 				.info.col-3{
 					padding:20px;
 					@include span-columns(6)
+
+					.fa{
+						padding: 0 10px;
+					}
+				&:last-child{
+					text-align: right;
 				}
+			}
 		}
 	}
 }
