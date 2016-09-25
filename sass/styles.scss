@@ -4,56 +4,98 @@
 
 
 body{
-	
+
 	margin:0;
 	font-family: 'Montserrat', sans-serif;
 
 	.site-header{
-		background:#d2d2d2;
-		border-bottom:1px solid #333;
-		
+	  background-color: #f8f8f8;
+		border-top:4px solid #111;
+		position: fixed;
+		width:100%;
+
 		.header-wrapper{
 			@include outer-container;
+			@include transition(all .5s ease-in-out);
+			padding:10px;
+
+
+			&.small{
+				padding:0;
+				//@include transition(all 2.0s ease-in-out);
+			}
 
 			#site-name{
 				@include span-columns(6);
 				padding: 5px 10px;
 				line-height: 50px;
 				display: inline-block;
-				font-size: 20px;	
-				font-weight:600;		
+				font-size: 20px;
+				font-weight:600;
+				color:#333;
 			}
 			nav{
 				@include span-columns(6);
 				@include omega();
+				ul{
+					float:right;
+					li{
+						display:inline-block;
+						padding:5px 10px;
 
-				li{
-					display:inline-block;
-					padding:5px 10px;
-					
-					a{
-						text-decoration:none;
-						text-transform:uppercase;
-						color:#333;					
-					}				
+						a{
+							text-decoration:none;
+							color:#333;
+						}
+					}
 				}
 			}
-		}	
+		}
 	}
 	.main{
-		background:url(../img/chicago.jpg);
+		background:url(../img/chicago-hyatt.jpg);
 		background-repeat:none;
 		background-size:cover;
 
 		.container{
 			@include outer-container;
 			display:table;
-			padding:100px;
+			padding:200px;
+		}
+	}
+	.card{
+		display:block;
+		width:100%;
+
+		.container{
+			@include outer-container;
+			display: block;
+			width:100%;
+			padding:50px;
+		}
+
+		&.three{
+			background:#333;
+			color:#FFF;
+
+			.container{
+				padding:100px 50px;
+			}
 		}
 	}
 	footer{
-		border-top:1px solid #333;	
+		border-top:1px solid #333;
+		background-color:#333;
+
+		#upper-footer{
+			@include outer-container;
+		}
+		#lower-footer{
+			@include outer-container;
+
+				.info.col-3{
+					@include span-columns(4)
+				}
+		}
 	}
 }
-
-
