@@ -60,9 +60,10 @@ body{
 		}
 	}
 	.main{
-		background:url(../img/chicago-hyatt.jpg);
+		background-image:url(../img/transit.jpg);
 		background-repeat:none;
 		background-size:cover;
+		background-position:50% 20%;
 
 		.container{
 			@include outer-container;
@@ -78,12 +79,29 @@ body{
 			@include outer-container;
 			display: block;
 			width:100%;
-			padding:50px;
+			padding:100px 50px;
 		}
 
+		&.one{
+			background-color:#f8f8f8;
+
+			.container{
+				padding:20px 50px;
+			}
+		}
+		&.two{
+			.container{
+				@include outer-container;
+
+				.col3{
+					@include span-columns(4);
+					text-align: center;
+				}
+			}
+		}
 		&.three{
-			background:#333;
-			color:#FFF;
+			background:#f8f8f8;
+
 
 			.container{
 				padding:100px 50px;
