@@ -1,0 +1,16 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Oct 20, 2016, 9:27:35 PM
+    Author     : delion
+*/
+
+@mixin xs-full{
+    @media screen and (max-width: 620px){
+        width:100%;
+        float:none;
+    }
+}

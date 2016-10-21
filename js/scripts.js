@@ -26,6 +26,10 @@ jQuery(function($) {
 		    return false;
 		});
 
+                
+                $('.mobile-nav').on('click', function(){
+                   $('#mainNav').toggleClass('active'); 
+                });
 		//if (parseInt(jQuery(window).width()) >= 1024) {
 		  //moving background block
 		//$('.main').parallax(['20%'], -0.2);

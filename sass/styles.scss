@@ -1,5 +1,6 @@
 @import "../import/bourbon/stylesheets/bourbon.scss";
 @import "../import/neat/stylesheets/neat.scss";
+@import "mixin.scss";
 
 
 html{@include transition(all .5s ease-in-out);}
@@ -38,8 +39,44 @@ body{
 			nav{
 				@include span-columns(6);
 				@include omega();
-				ul{
-					float:right;
+				
+                                .mobile-nav{
+                                    display:none;
+                                    position:relative;
+                                    font-size:25px;
+                                    float:right;
+                                    right:20px;
+                                    cursor:pointer;
+                                    
+                                    .fa{
+                                        padding: 20px 5px;
+                                    }
+                                    @media screen and (max-width: 976px){
+                                        display:block;
+                                        
+                                    }
+                                }
+                                ul{
+                                    @media screen and (max-width: 976px){
+                                        @include transition(all .5s ease-in-out);
+                                        position: absolute;
+                                        top: 70px;
+                                        right: -200px;
+                                        max-width: 200px;
+                                        background:#333;
+                                        opacity: 0.5;
+                                        filter: alpha(opacity=50); /* For IE8 and earlier */
+                                        
+                                        &.active{
+                                            right:0px;
+                                            
+                                            a{
+                                                color:#FFF;
+                                            }
+                                        }
+                                    }
+                                    
+                                    float:right;
 					li{
 						display:inline-block;
 						padding:5px 10px;
@@ -84,6 +121,7 @@ body{
 
 		&.one{
 			background-color:#f8f8f8;
+                        
 
 			.container{
 				padding:20px 50px;
@@ -95,6 +133,7 @@ body{
 
 				.col3{
 					@include span-columns(4);
+                                        @include xs-full; 
 					text-align: center;
 				}
 			}
