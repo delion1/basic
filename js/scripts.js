@@ -40,7 +40,35 @@ jQuery(function($) {
 		//$('.main').parallax(['20%'], -0.2);
 
 	  //}
+          $('#cards').fullpage({
+                anchors: ['Home', 'About', 'Tech', 'Contact', 'lastPage'],
+                menu: '#mainNav'
+            });
+            
+            $(document).on('click', '#moveUp', function(){
+                $.fn.fullpage.moveSectionUp(); 
+              });
 
+              console.log(window.location.hash);//) {
+        $(window).bind('hashchange', function (e){
+            var hash = window.location.hash;
+            
+            $('#mainNav a').each(function(){
+
+                var active = $(this).attr('href');
+               //console.log($(this).attr('href')); 
+               if(hash == active){
+                   $(this).addClass('active');
+               }else{
+                   $(this).removeClass('active');
+               }
+            });
+       });
+
+       
+            
+            //if();
+              //var hash = window.location.hash.substring(1);
 
 });
 function initMap() {

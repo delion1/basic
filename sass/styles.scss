@@ -15,6 +15,7 @@ body{
 		border-bottom:solid 1px #E4E9EA;
 		position: fixed;
 		width:100%;
+                z-index:9;
 
 		.header-wrapper{
 			@include outer-container;
@@ -88,8 +89,8 @@ body{
 
 							&:hover,
 							&:focus,
-							&:active{
-								color:#777;
+							&.active{
+                                                            color:#777;
 							}
 						}
 					}
@@ -97,12 +98,14 @@ body{
 			}
 		}
 	}
+        //.cards{
 	.main{
 		background-image:url(../img/transit.jpg);
 		background-repeat:none;
 		background-size:cover;
 		background-position:50% 20%;
-
+                height:80%;
+                
 		.container{
 			@include outer-container;
 			display:table;
@@ -129,6 +132,9 @@ body{
 			}
 		}
 		&.two{
+                    .main{
+                        max-height:60%;
+                    }
 			.container{
 				@include outer-container;
 
@@ -156,6 +162,7 @@ body{
                     width:100%;
                 }
 	}
+        //}
 	footer{
 		border-top:solid 1px #E4E9EA;
 		background-color:#f5f5f5;
