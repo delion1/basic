@@ -29,7 +29,12 @@ jQuery(function($) {
                 
                 $('.mobile-nav').on('click', function(){
                    $('#mainNav').toggleClass('active'); 
+                   console.log('clicked');
                 });
+                jQuery('#mainNav').on('click', function(){
+                    //console.log('clicked');
+                    jQuery(this).removeClass('active');
+                }); 
 		//if (parseInt(jQuery(window).width()) >= 1024) {
 		  //moving background block
 		//$('.main').parallax(['20%'], -0.2);
@@ -38,3 +43,56 @@ jQuery(function($) {
 
 
 });
+function initMap() {
+    var uluru = {lat: 41.743369, lng: -87.570702};
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 16,
+      center: uluru,
+      mapTypeId: 'terrain',
+      styles: [
+          {
+          featureType: 'road',
+          elementType: 'labels.text.fill',
+          stylers: [{color: '#9ca5b3'}]
+          },
+          {
+            "featureType": "road.arterial",
+            "elementType": "geometry",
+            "stylers": [{ "color": "#FFF" }]
+          },
+          {
+            featureType: 'transit.station',
+            elementType: 'geometry',
+            stylers: [{color: '#FFF'}]
+          },
+          {
+            featureType: 'transit.line',
+            elementType: 'labels.text.fill',
+            stylers: [{color: '#FFF'}]
+          },
+          {
+            featureType: 'transit.line',
+            elementType: 'labels.text.stroke',
+            stylers: [{color: '#FFF'}]
+          }
+      ]
+    });
+     var transitLayer = new google.maps.TransitLayer();
+    transitLayer.setMap(map);
+
+    //var defaultBounds = new google.maps.LatLngBounds(
+    //new google.maps.LatLng(-33.8902, 151.1759),
+    //new google.maps.LatLng(-33.8474, 151.2631));
+
+    var input = document.getElementById('searchTextField');
+
+    var searchBox = new google.maps.places.SearchBox(input, {
+      bounds: defaultBounds
+    });
+    //var marker = new google.maps.Marker({
+      //position: uluru,
+      //map: map
+    //});
+    //map.setTilt(65);
+
+} 

@@ -25,6 +25,7 @@ body{
 			&.small{
 				padding:0;
 				//@include transition(all 2.0s ease-in-out);
+                                
 			}
 
 			#site-name{
@@ -139,13 +140,21 @@ body{
 			}
 		}
 		&.three{
-			background:#f8f8f8;
+                        background-image:url(../img/train-tracks1.jpg);
+                        background:#f8f8f8;
+                        background-repeat:none;
+                        background-size:cover;
+                        background-position:50% 20%;
 
 
 			.container{
 				padding:100px 50px;
 			}
 		}
+                #map{
+                    height:400px;
+                    width:100%;
+                }
 	}
 	footer{
 		border-top:solid 1px #E4E9EA;
@@ -163,6 +172,7 @@ body{
 
 					.fa{
 						padding: 0 10px;
+                                                color:#333;
 					}
 				&:last-child{
 					text-align: right;
