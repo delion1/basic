@@ -26,23 +26,30 @@ jQuery(function($) {
 		    return false;
 		});
 
-                
+
                 $('.mobile-nav').on('click', function(){
-                   $('#mainNav').toggleClass('active'); 
+                   $('#mainNav').toggleClass('active');
                    console.log('clicked');
                 });
                 jQuery('#mainNav').on('click', function(){
                     //console.log('clicked');
                     jQuery(this).removeClass('active');
-                }); 
+                });
 		//if (parseInt(jQuery(window).width()) >= 1024) {
 		  //moving background block
 		//$('.main').parallax(['20%'], -0.2);
 
 	  //}
 
+    /*$('#wrapper').mousemove(function(e){
+      var x = -(e.pageX + this.offsetLeft) / 100;
+      var y = -(e.pageY + this.offsetTop) / 20;
+      $(this).css('background-position', x + 'px ' + y + 'px');
+    });*/
 
 });
+
+
 function initMap() {
     var uluru = {lat: 41.743369, lng: -87.570702};
     var map = new google.maps.Map(document.getElementById('map'), {
@@ -95,4 +102,4 @@ function initMap() {
     //});
     //map.setTilt(65);
 
-} 
+}

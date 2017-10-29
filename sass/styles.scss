@@ -2,30 +2,41 @@
 @import "../import/neat/stylesheets/neat.scss";
 @import "mixin.scss";
 
+*{
+	margin: 0;
+	padding: 0;
+}
+
+  html,
+  body {
+	height: 100%;
+  }
 
 html{@include transition(all .5s ease-in-out);}
 body{
 
 	margin:0;
 	font-family: 'Montserrat', sans-serif;
+    background-color:$grey-color;
 
 	.site-header{
-	  background-color: #f8f8f8;
+	  background-color:#1d4c05;
 		border-top:4px solid #111;
 		border-bottom:solid 1px #E4E9EA;
 		position: fixed;
 		width:100%;
+        top:0;
 
 		.header-wrapper{
 			@include outer-container;
 			@include transition(all .5s ease-in-out);
-			padding:10px;
+			//padding:10px;
 
 
 			&.small{
 				padding:0;
 				//@include transition(all 2.0s ease-in-out);
-                                
+
 			}
 
 			#site-name{
@@ -35,61 +46,65 @@ body{
 				display: inline-block;
 				font-size: 20px;
 				font-weight:600;
-				color:#333;
+				color:#FFF;
 			}
 			nav{
 				@include span-columns(6);
 				@include omega();
-				
-                                .mobile-nav{
-                                    display:none;
-                                    position:relative;
-                                    font-size:25px;
-                                    float:right;
-                                    right:20px;
-                                    cursor:pointer;
-                                    
-                                    .fa{
-                                        padding: 20px 5px;
-                                    }
-                                    @media screen and (max-width: 976px){
-                                        display:block;
-                                        
-                                    }
-                                }
-                                ul{
-                                    @media screen and (max-width: 976px){
-                                        @include transition(all .5s ease-in-out);
-                                        position: absolute;
-                                        top: 70px;
-                                        right: -200px;
-                                        max-width: 200px;
-                                        background:#333;
-                                        opacity: 0.5;
-                                        filter: alpha(opacity=50); /* For IE8 and earlier */
-                                        
-                                        &.active{
-                                            right:0px;
-                                            
-                                            a{
-                                                color:#FFF;
-                                            }
-                                        }
-                                    }
-                                    
+
+				.mobile-nav{
+					display:none;
+					position:relative;
+					font-size:25px;
+					float:right;
+					right:20px;
+					cursor:pointer;
+
+					.fa{
+						padding: 20px 5px;
+					}
+					@media screen and (max-width: 976px){
+						display:block;
+
+					}
+				}
+				ul{
+					line-height:50px;
+					@media screen and (max-width: 976px){
+						@include transition(all .5s ease-in-out);
+						position: absolute;
+						top: 70px;
+						right: -200px;
+						max-width: 200px;
+						background:#333;
+						opacity: 0.5;
+						filter: alpha(opacity=50); /* For IE8 and earlier */
+
+						&.active{
+							right:0px;
+
+							a{
+								color:#FFF;
+							}
+						}
+					}
+
                                     float:right;
 					li{
 						display:inline-block;
-						padding:5px 10px;
+						//padding:5px 10px;
 
 						a{
+                            display:block;
 							text-decoration:none;
-							color:#333;
+							color:#FFF;
+							padding:10px;
 
 							&:hover,
 							&:focus,
 							&:active{
-								color:#777;
+								color:$green-color;
+                                background:#FFF;
 							}
 						}
 					}
@@ -97,17 +112,24 @@ body{
 			}
 		}
 	}
+	.wrap {
+		//min-height: 100%;
+        //background-image:url(../img/transit.jpg);
+		//background-repeat:none;
+		//background-size:cover;
+		//background-position:50% 20%;
+        @include outer-container;
+        margin-top: 200px;
+	  }
 	.main{
-		background-image:url(../img/transit.jpg);
+		/*background-image:url(../img/transit.jpg);
 		background-repeat:none;
 		background-size:cover;
-		background-position:50% 20%;
-
-		.container{
-			@include outer-container;
-			display:table;
-			padding:200px;
-		}
+		background-position:50% 20%;*/
+        //@include outer-container;
+		overflow: auto;
+		padding-bottom: 80px;
+		/* must be same height as the footer */
 	}
 	.card{
 		display:block;
@@ -122,7 +144,9 @@ body{
 
 		&.one{
 			background-color:#f8f8f8;
-                        
+			//background-color:rgba(255, 255, 255, 0.35);
+			padding:30px 0;
+            min-height:200px;
 
 			.container{
 				padding:20px 50px;
@@ -134,7 +158,7 @@ body{
 
 				.col3{
 					@include span-columns(4);
-                                        @include xs-full; 
+                                        @include xs-full;
 					text-align: center;
 				}
 			}
@@ -158,7 +182,14 @@ body{
 	}
 	footer{
 		border-top:solid 1px #E4E9EA;
-		background-color:#f5f5f5;
+		background-color:#F9F9F9;
+		position: absolute;
+        bottom:0;
+        width:100%;
+		//margin-top: -80px;
+		/* negative value of footer height */
+		height: 80px;
+		clear: both;
 
 		#upper-footer{
 			@include outer-container;
@@ -181,3 +212,14 @@ body{
 		}
 	}
 }
+
+  /* Opera Fix thanks to Maleika (Kohoutec) */
+
+  body:before {
+	content: "";
+	height: 100%;
+	float: left;
+	width: 0;
+	margin-top: -32767px;
+	/* thank you Erik J - negate effect of float*/
+  }
