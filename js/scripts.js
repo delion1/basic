@@ -26,15 +26,15 @@ jQuery(function($) {
 		    return false;
 		});
 
-                
+
                 $('.mobile-nav').on('click', function(){
-                   $('#mainNav').toggleClass('active'); 
+                   $('#mainNav').toggleClass('active');
                    console.log('clicked');
                 });
                 jQuery('#mainNav').on('click', function(){
                     //console.log('clicked');
                     jQuery(this).removeClass('active');
-                }); 
+                });
 		//if (parseInt(jQuery(window).width()) >= 1024) {
 		  //moving background block
 		//$('.main').parallax(['20%'], -0.2);
@@ -49,13 +49,21 @@ function newsFeed(){
     var url = 'https://newsapi.org/v2/top-headlines?' +
           'country=us&' +
           'apiKey=a9e3fc2ec88c4d0488941ebf7750e740';
-    
+
     var req = new Request(url);
     console.log('this');
     fetch(req)
-        .then(function(response) {
-            console.log(response.json());
-        });
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            if (data.status == 'ok'){
+                var articles = data.articles;
+                articles.forEach(function (dataNews){
+                    console.log(dataNews);
+                });
+            }
+        })
+        .catch(error => console.log('error is', error));
 }
 function initMap() {
     var uluru = {lat: 41.743369, lng: -87.570702};
@@ -109,4 +117,4 @@ function initMap() {
     //});
     //map.setTilt(65);
 
-} 
+}
