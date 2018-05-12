@@ -25,7 +25,7 @@ body{
 			&.small{
 				padding:0;
 				//@include transition(all 2.0s ease-in-out);
-                                
+
 			}
 
 			#site-name{
@@ -40,7 +40,7 @@ body{
 			nav{
 				@include span-columns(6);
 				@include omega();
-				
+
                                 .mobile-nav{
                                     display:none;
                                     position:relative;
@@ -48,13 +48,13 @@ body{
                                     float:right;
                                     right:20px;
                                     cursor:pointer;
-                                    
+
                                     .fa{
                                         padding: 20px 5px;
                                     }
                                     @media screen and (max-width: 976px){
                                         display:block;
-                                        
+
                                     }
                                 }
                                 ul{
@@ -67,16 +67,16 @@ body{
                                         background:#333;
                                         opacity: 0.5;
                                         filter: alpha(opacity=50); /* For IE8 and earlier */
-                                        
+
                                         &.active{
                                             right:0px;
-                                            
+
                                             a{
                                                 color:#FFF;
                                             }
                                         }
                                     }
-                                    
+
                                     float:right;
 					li{
 						display:inline-block;
@@ -122,7 +122,7 @@ body{
 
 		&.one{
 			background-color:#f8f8f8;
-                        
+
 
 			.container{
 				padding:20px 50px;
@@ -134,17 +134,29 @@ body{
 
 				.col3{
 					@include span-columns(4);
-                                        @include xs-full; 
+                                        @include xs-full;
 					text-align: center;
+
+					.article{
+						@include outer-container;
+						padding:10px 0;
+
+						.col-3{
+							@include span-columns(12);
+						}
+						.col-9{
+							@include span-columns(12);
+						}
+					}
 				}
 			}
 		}
 		&.three{
-                        background-image:url(../img/train-tracks1.jpg);
-                        background:#f8f8f8;
-                        background-repeat:none;
-                        background-size:cover;
-                        background-position:50% 20%;
+			background-image:url(../img/train-tracks1.jpg);
+			background:#f8f8f8;
+			background-repeat:none;
+			background-size:cover;
+			background-position:50% 20%;
 
 
 			.container{

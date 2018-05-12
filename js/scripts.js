@@ -46,9 +46,11 @@ jQuery(function($) {
 
 });
 function newsFeed(){
-    var url = 'https://newsapi.org/v2/top-headlines?' +
-          'country=us&' +
-          'apiKey=a9e3fc2ec88c4d0488941ebf7750e740';
+    var url = 'https://newsapi.org/v2/everything?' +
+        'q=Drupal&' +
+        'from=2017-05-12&' +
+        'sortBy=popularity&' +
+        'apiKey=a9e3fc2ec88c4d0488941ebf7750e740';
 
     var req = new Request(url);
     console.log('this');
@@ -60,6 +62,19 @@ function newsFeed(){
                 var articles = data.articles;
                 articles.forEach(function (dataNews){
                     console.log(dataNews);
+                    var title = dataNews.title;
+                    var url = dataNews.url;
+                    var imgURL = dataNews.urlToImage;
+                    var img = '<img src="'+imgURL+'" width="100%" height="auto">';
+                    var desc = dataNews.description;
+                    console.log(title);
+                    article = '<div class="article">'+
+                        '<div class="col-3">'+img+'</div>'+
+                        '<div class="col-9"><a href="'+url+'">'+title+"</a>"+
+                        '<div class="">'+desc+'</div>'+
+                        '</div></div>';
+
+                    jQuery('.card.two .col3:first-child').append(article);
                 });
             }
         })
