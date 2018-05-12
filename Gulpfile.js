@@ -48,10 +48,10 @@ gulp.task('compress', function() {
 });
 
 gulp.task('watch', function() {
-  gulp.watch('sass/**/*.scss', ['sass']);
+  gulp.watch('sass/**/*.scss',  gulp.series('sass'));
   //gulp.watch('compress');
     //gulp.run('drush:cc');
-  gulp.watch('js/**/*.js', ['compress']);
+  gulp.watch('js/**/*.js', gulp.series('compress'));
 });
 
-gulp.task('default', ['watch']);
+gulp.task('default', gulp.parallel('watch'));

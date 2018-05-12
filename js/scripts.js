@@ -40,9 +40,23 @@ jQuery(function($) {
 		//$('.main').parallax(['20%'], -0.2);
 
 	  //}
-
+    if($('.card.two').length > 0){
+        newsFeed();
+    }
 
 });
+function newsFeed(){
+    var url = 'https://newsapi.org/v2/top-headlines?' +
+          'country=us&' +
+          'apiKey=a9e3fc2ec88c4d0488941ebf7750e740';
+    
+    var req = new Request(url);
+    console.log('this');
+    fetch(req)
+        .then(function(response) {
+            console.log(response.json());
+        });
+}
 function initMap() {
     var uluru = {lat: 41.743369, lng: -87.570702};
     var map = new google.maps.Map(document.getElementById('map'), {
