@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "bourbon-neat": "^2.1.0",
+    "fetch-tweets": "^0.1.7",
     "gulp-notify": "^2.2.0",
     "gulp-plumber": "^1.1.0",
     "gulp-sass": "^2.3.2",
