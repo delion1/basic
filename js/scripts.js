@@ -85,7 +85,7 @@ function newsFeed(){
 function instaFeed() {
     var feed = new Instafeed({
         get: 'tagged',
-        tagName: 'culture',
+        tagName: 'awesome',
         clientId: '6078a50fcb3a48e9aeb20879cdc265fe'
     });
     feed.run();
