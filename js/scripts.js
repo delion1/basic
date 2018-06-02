@@ -1,7 +1,5 @@
 jQuery.noConflict();
 jQuery(function($) {
-	console.log('being read');
-
 
 	$(window).scroll(function() {
         //var scroll = $(window).scrollTop();
@@ -41,8 +39,12 @@ jQuery(function($) {
 
 	  //}
     if($('.card.two').length > 0){
-        newsFeed();
+        //newsFeed();
     }
+    $('#btn-go').on('click', function(){
+    console.log('clicked');
+        newsFeed();
+    });
 
 });
 function newsFeed(){

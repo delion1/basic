@@ -29,7 +29,7 @@ body{
 			}
 
 			#site-name{
-				@include span-columns(6);
+				@include span-columns(5);
 				padding: 5px 10px;
 				line-height: 50px;
 				display: inline-block;
@@ -38,46 +38,46 @@ body{
 				color:#333;
 			}
 			nav{
-				@include span-columns(6);
+				@include span-columns(7);
 				@include omega();
 
-                                .mobile-nav{
-                                    display:none;
-                                    position:relative;
-                                    font-size:25px;
-                                    float:right;
-                                    right:20px;
-                                    cursor:pointer;
+                .mobile-nav{
+                    display:none;
+                    position:relative;
+                    font-size:25px;
+                    float:right;
+                    right:20px;
+                    cursor:pointer;
 
-                                    .fa{
-                                        padding: 20px 5px;
-                                    }
-                                    @media screen and (max-width: 976px){
-                                        display:block;
+                    .fa{
+                        padding: 20px 5px;
+                    }
+                    @media screen and (max-width: 976px){
+                        display:block;
 
-                                    }
-                                }
-                                ul{
-                                    @media screen and (max-width: 976px){
-                                        @include transition(all .5s ease-in-out);
-                                        position: absolute;
-                                        top: 70px;
-                                        right: -200px;
-                                        max-width: 200px;
-                                        background:#333;
-                                        opacity: 0.5;
-                                        filter: alpha(opacity=50); /* For IE8 and earlier */
+                    }
+                }
+                ul{
+                    @media screen and (max-width: 976px){
+                        @include transition(all .5s ease-in-out);
+                        position: absolute;
+                        top: 70px;
+                        right: -200px;
+                        max-width: 200px;
+                        background:#333;
+                        opacity: 0.5;
+                        filter: alpha(opacity=50); /* For IE8 and earlier */
 
-                                        &.active{
-                                            right:0px;
+                        &.active{
+                            right:0px;
 
-                                            a{
-                                                color:#FFF;
-                                            }
-                                        }
-                                    }
+                            a{
+                                color:#FFF;
+                            }
+                        }
+                    }
 
-                                    float:right;
+                    float:right;
 					li{
 						display:inline-block;
 						padding:5px 10px;
@@ -85,6 +85,7 @@ body{
 						a{
 							text-decoration:none;
 							color:#333;
+                            font-weight: 700;
 
 							&:hover,
 							&:focus,
@@ -107,6 +108,7 @@ body{
 			@include outer-container;
 			display:table;
 			padding:200px;
+            min-height:70vh;
 		}
 	}
 	.card{
@@ -134,7 +136,7 @@ body{
 
 				.col3{
 					@include span-columns(4);
-                                        @include xs-full;
+                    @include xs-full;
 					text-align: center;
 
 					.article{
