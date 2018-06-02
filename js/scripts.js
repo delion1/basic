@@ -45,7 +45,7 @@ jQuery(function($) {
     console.log('clicked');
         newsFeed();
     });
-
+    instaFeed();
 });
 function newsFeed(){
     var url = 'https://newsapi.org/v2/everything?' +
@@ -81,6 +81,14 @@ function newsFeed(){
             }
         })
         .catch(error => console.log('error is', error));
+}
+function instaFeed() {
+    var feed = new Instafeed({
+        get: 'tagged',
+        tagName: 'awesome',
+        clientId: '6078a50fcb3a48e9aeb20879cdc265fe'
+    });
+    feed.run();
 }
 function initMap() {
     var uluru = {lat: 41.743369, lng: -87.570702};
