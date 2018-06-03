@@ -165,10 +165,10 @@ body{
 				padding:100px 50px;
 			}
 		}
-                #map{
-                    height:400px;
-                    width:100%;
-                }
+		#map{
+			height:400px;
+			width:100%;
+		}
 	}
 	footer{
 		border-top:solid 1px #E4E9EA;
@@ -182,11 +182,11 @@ body{
 
 				.info.col-3{
 					padding:20px;
-					@include span-columns(6)
+					@include span-columns(6);
 
 					.fa{
 						padding: 0 10px;
-                                                color:#333;
+                    	color:#333;
 					}
 				&:last-child{
 					text-align: right;
