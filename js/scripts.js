@@ -85,9 +85,9 @@ function newsFeed(){
 function instaFeed() {
     var feed = new Instafeed({
         get: 'tagged',
-        tagName: 'awesome',
-        //clientId: '6078a50fcb3a48e9aeb20879cdc265fe'
-        clientId: '144210083.6078a50.6087ad12448f4df5950778a235634b23'
+        tagName: 'php',
+        clientId: '6078a50fcb3a48e9aeb20879cdc265fe',
+        accessToken: '144210083.6078a50.6087ad12448f4df5950778a235634b23'
     });
     feed.run();
 }
