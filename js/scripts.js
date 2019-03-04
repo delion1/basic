@@ -25,122 +25,84 @@ jQuery(function($) {
 		});
 
 
-                $('.mobile-nav').on('click', function(){
-                   $('#mainNav').toggleClass('active');
-                   console.log('clicked');
-                });
-                jQuery('#mainNav').on('click', function(){
-                    //console.log('clicked');
-                    jQuery(this).removeClass('active');
-                });
-		//if (parseInt(jQuery(window).width()) >= 1024) {
-		  //moving background block
-		//$('.main').parallax(['20%'], -0.2);
+    $('.mobile-nav').on('click', function(){
+       $('#mainNav').toggleClass('active');
+       console.log('clicked');
+    });
+    jQuery('#mainNav').on('click', function(){
+        //console.log('clicked');
+        jQuery(this).removeClass('active');
+    });
 
-	  //}
     if($('.card.two').length > 0){
         //newsFeed();
     }
-    $('#btn-go').on('click', function(){
-    console.log('clicked');
-        newsFeed();
-    });
-    instaFeed();
+
 });
-function newsFeed(){
-    var url = 'https://newsapi.org/v2/everything?' +
-        'q=Drupal&' +
-        'from=2017-05-12&' +
-        'sortBy=popularity&' +
-        'apiKey=a9e3fc2ec88c4d0488941ebf7750e740';
+
+menu();
+
+/*function newsFeed(){
+
+    var url = 'https://newsapi.org/v2/top-headlines?sources=espn&apiKey=a9e3fc2ec88c4d0488941ebf7750e740';
 
     var req = new Request(url);
-    console.log('this');
     fetch(req)
         .then(response => response.json())
         .then(data => {
-            console.log(data);
             if (data.status == 'ok'){
                 var articles = data.articles;
                 articles.forEach(function (dataNews){
-                    console.log(dataNews);
                     var title = dataNews.title;
                     var url = dataNews.url;
                     var imgURL = dataNews.urlToImage;
-                    var img = '<img src="'+imgURL+'" width="100%" height="auto">';
+                    var img = document.createElement('img');
+                    img.setAttribute('src', imgURL);
+                    img.setAttribute('width', '100%');
                     var desc = dataNews.description;
-                    console.log(title);
-                    article = '<div class="article">'+
-                        '<div class="col-3">'+img+'</div>'+
-                        '<div class="col-9"><a href="'+url+'">'+title+"</a>"+
-                        '<div class="">'+desc+'</div>'+
-                        '</div></div>';
 
-                    jQuery('.card.two .col3:first-child').append(article);
+                    if(desc.length > 120 ){
+                      desc = desc.substring(0, 120)+"...";
+                    }
+
+                    desc = document.createTextNode(desc);
+                    var article = document.createElement('div'),
+                    col3 = document.createElement('div'),
+                    col9 = document.createElement('div'),
+                    col = document.createElement('div');
+                    link = document.createElement('a');
+                    article.classList.add('article');
+                    col3.classList.add('col-3');
+                    col9.classList.add('col-9');
+                    link.setAttribute('href', url);
+                    link.innerHTML = title;
+                    col3.appendChild(img);
+                    col9.appendChild(link);
+                    col.appendChild(desc);
+                    article.appendChild(col3);
+                    article.appendChild(col9);
+                    article.appendChild(col); 
+
+                    var container = document.getElementsByClassName('news')[0];
+                    container.appendChild(article);
+                    //jQuery('.card.two .col3:first-child').append(article);
                 });
             }
         })
         .catch(error => console.log('error is', error));
+}*/
+
+function intro(){
+  var container = document.getElementById('intro');
+
 }
-function instaFeed() {
-    var feed = new Instafeed({
-        get: 'tagged',
-        tagName: 'php',
-        clientId: '6078a50fcb3a48e9aeb20879cdc265fe',
-        accessToken: '144210083.6078a50.6087ad12448f4df5950778a235634b23'
-    });
-    feed.run();
-}
-function initMap() {
-    var uluru = {lat: 41.743369, lng: -87.570702};
-    var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 16,
-      center: uluru,
-      mapTypeId: 'terrain',
-      styles: [
-          {
-          featureType: 'road',
-          elementType: 'labels.text.fill',
-          stylers: [{color: '#9ca5b3'}]
-          },
-          {
-            "featureType": "road.arterial",
-            "elementType": "geometry",
-            "stylers": [{ "color": "#FFF" }]
-          },
-          {
-            featureType: 'transit.station',
-            elementType: 'geometry',
-            stylers: [{color: '#FFF'}]
-          },
-          {
-            featureType: 'transit.line',
-            elementType: 'labels.text.fill',
-            stylers: [{color: '#FFF'}]
-          },
-          {
-            featureType: 'transit.line',
-            elementType: 'labels.text.stroke',
-            stylers: [{color: '#FFF'}]
-          }
-      ]
-    });
-     var transitLayer = new google.maps.TransitLayer();
-    transitLayer.setMap(map);
+function menu(){
+  var menuNav = document.getElementById('mainNav');
+  var menu = ['What I Do', 'The Platform', 'Contact Me'];
 
-    //var defaultBounds = new google.maps.LatLngBounds(
-    //new google.maps.LatLng(-33.8902, 151.1759),
-    //new google.maps.LatLng(-33.8474, 151.2631));
-
-    var input = document.getElementById('searchTextField');
-
-    var searchBox = new google.maps.places.SearchBox(input, {
-      bounds: defaultBounds
-    });
-    //var marker = new google.maps.Marker({
-      //position: uluru,
-      //map: map
-    //});
-    //map.setTilt(65);
-
+  menu.forEach(function (items){
+    var li = document.createElement('li');
+    li.innerHTML = "<a href='#''>"+items+"</a>";
+    menuNav.appendChild(li);
+  });
 }
