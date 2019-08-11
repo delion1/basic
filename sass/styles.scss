@@ -14,7 +14,7 @@ body{
 		border-top:4px solid $blue-color;
 		border-bottom:solid 1px #E4E9EA;
 		position: fixed;
-		width:100%;
+		width:100%; 
 
 		.header-wrapper{
 			@include outer-container;
