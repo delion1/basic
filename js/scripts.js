@@ -1,10 +1,10 @@
 jQuery.noConflict();
 jQuery(function($) {
 
-	$(window).scroll(function() {
+    $(window).scroll(function() {
         //var scroll = $(window).scrollTop();
-            var scroll = window.pageYOffset,
-            width = parseInt(jQuery(window).width()) >= 980;
+         var scroll = window.pageYOffset,
+         width = parseInt(jQuery(window).width()) >= 980;
 
         if ((scroll >= 50) && (width)) {
             $(".header-wrapper").addClass("small");
@@ -13,7 +13,7 @@ jQuery(function($) {
             $(".header-wrapper").removeClass("small");
             $("#block-menu-menu-menu-1, #block-menu-menu-menu-2").removeClass("small");
         }
-    });
+     });
 
 		$("a.toscroll").on('click',function(e) {
 		    var url = e.target.href;
@@ -41,6 +41,7 @@ jQuery(function($) {
 });
 
 menu();
+sidebar();
 
 /*function newsFeed(){
 
@@ -91,12 +92,35 @@ menu();
         })
         .catch(error => console.log('error is', error));
 }*/
+//const e = React.createElement;
+
+/*class LikeButton extends React.Component {
+  constructor(props) {
+    super(props); 
+    this.state = { liked: false };
+  }
+
+  render() {
+    if (this.state.liked) {
+      return 'You liked this.';
+    }
+
+    return e(
+      'button',
+      { onClick: () => this.setState({ liked: true }) },
+      'Like'
+    );
+  }
+}*/
+
+//const domContainer = document.querySelector('#like_button_container');
+//ReactDOM.render(e(LikeButton), domContainer);
 
 function intro(){
   var container = document.getElementById('intro');
 
 }
-function menu(){
+function menu(){ 
   var menuNav = document.getElementById('mainNav');
   var menu = ['What I Do', 'The Platform', 'Contact Me'];
 
@@ -105,4 +129,19 @@ function menu(){
     li.innerHTML = "<a href='#''>"+items+"</a>";
     menuNav.appendChild(li);
   });
+}
+
+function sidebar(){
+    var sideDiv = document.getElementById('sidebar');
+    var sideMenu = document.createElement('ul');
+    sideMenu.setAttribute('class', 'side-menu');
+    var options = ['About', 'Resume', 'Education'];
+    var menu = [];
+    options.forEach(function (items){
+       var li = document.createElement('li');
+        li.setAttribute('class', 'item');
+        li.innerHTML = "<a href='#"+items+"'>"+items+"</a>";
+        sideMenu.appendChild(li);
+    });
+   // sideDiv.appendChild(sideMenu);
 }

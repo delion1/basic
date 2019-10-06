@@ -18,3 +18,13 @@ and open the template in the editor.
 $blue-color:#030f3e;
 $green-color:#1d4c05;
 $grey-color:#F9F9F9;
+
+%box-shadow{
+    -webkit-box-shadow: 0px 1px 6px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 1px 6px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 1px 6px 0px rgba(0,0,0,0.75);
+}
+%box-shadow-light{
+    box-shadow: 0 1px 0 rgba(12,13,14,0.1), 0 1px 6px rgba(59,64,69,0.1);
+    -moz-box-shadow: 0 1px 0 rgba(12,13,14,0.1), 0 1px 6px rgba(59,64,69,0.1);
+}
